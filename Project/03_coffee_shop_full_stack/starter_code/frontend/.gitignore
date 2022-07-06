@@ -28,7 +28,8 @@ plugins/
 plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
-
+../backen/src/.env
+../backen/src/env
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
