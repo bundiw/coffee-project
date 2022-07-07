@@ -53,7 +53,7 @@ def show_short_drinks():
     if drinks_list is None:
         abort(404)
     drinks = [drink.short() for drink in drinks_list]
-    print(*drinks)
+    #print(*drinks)
     return jsonify(
         {
             "success": True,
@@ -75,7 +75,7 @@ def show_short_drinks():
 @app.route('/drinks-detail')
 @requires_auth('get:drinks-detail')
 def show_details(jwt):
-    print(jwt)
+    #print(jwt)
     drinks_list = Drink.query.all()
     if drinks_list is None:
         abort(404)
@@ -102,7 +102,7 @@ def show_details(jwt):
 @app.route('/drinks', methods=['POST'])
 @requires_auth('post:drinks')
 def create_drinks(jwt):
-    print(jwt)
+    #print(jwt)
     drink_body = request.get_json()
     if drink_body is None:
         abort(400)
@@ -112,7 +112,7 @@ def create_drinks(jwt):
     if drink_exist is not None:
         abort(422)
 
-    print(json.dumps(recipe))
+    #print(json.dumps(recipe))
     drink = Drink(
         title=title,
         recipe=json.dumps(recipe)
@@ -142,7 +142,7 @@ def create_drinks(jwt):
 @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth(permission='patch:drinks')
 def update_drinks(jwt, drink_id):
-    print(jwt)
+    #print(jwt)
 
     drink = Drink.query.get(drink_id)
     drink_body = request.get_json()
@@ -188,7 +188,7 @@ def update_drinks(jwt, drink_id):
 @app.route('/drinks/<int:drink_id>', methods=['DELETE'])
 @requires_auth(permission='delete:drinks')
 def delete_drinks(jwt, drink_id):
-    print(jwt)
+    #print(jwt)
     drink = Drink.query.get(drink_id)
     if drink is None:
         abort(404)
