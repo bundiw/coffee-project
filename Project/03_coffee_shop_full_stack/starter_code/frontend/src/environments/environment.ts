@@ -1,4 +1,4 @@
-/* @TODO replace with your variables
+/* @DONE replace with your variables
  * ensure all variables on this page match your project
  */
 
